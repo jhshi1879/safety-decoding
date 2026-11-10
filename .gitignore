@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+.env
+.env.*
+wandb/
+runs/
+data/
+*.pkl.gz
+*.pt
+*.pth
+*.safetensors

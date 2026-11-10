@@ -1,0 +1,31 @@
+batch_size: 1
+model_name: louaaron/sedd-small
+sampling_len: 32
+learning_rate: 1e-5
+learning_rate_Z: 1e-3
+grad_accumulation: 1
+num_steps: 3
+device: cuda
+reward_batch_size: 1
+# Validation judge supplies training rewards; test judge is loaded only by evaluation.
+harm_scorer_model: cais/HarmBench-Mistral-7b-val-cls
+test_scorer_model: cais/HarmBench-Llama-2-13b-cls
+scorer_max_length: 4096
+# log R = -safety_weight * harmful_compliance; no quality or refusal objective.
+safety_weight: 1.0
+seed: 42
+max_new_tokens: 64
+num_prompts_harmbench: 4
+num_prompts_xstest: 0
+harmbench_path: null
+xstest_source: null
+eval_fraction: 0.25
+wandb_mode: disabled
+cutoff: 0.1
+loss_type: tb
+warmup_steps: 0
+reward_invtemp_end: 1.0
+reward_invtemp_start: 1.0
+reward_temp_sched_steps: 0
+save_dir: runs
+exp_name: harmbench_diagnostic_64tok_32steps
